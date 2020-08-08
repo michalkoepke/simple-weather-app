@@ -37,7 +37,9 @@ body {
 
 
 
-    --accent-sun: #ffa836;
+    --accent-sun: #f99319;
+    --accent-light: #fee9d1;
+    
     --accent-red: #d2202f;
     --accent-sky: #00ade2;
 
@@ -80,7 +82,7 @@ body {
 
 .light-text-2 {
 
-    color: var(--greySky-l2);
+    color: var(--accent-light);
 
 }
 
@@ -96,6 +98,12 @@ body {
 
 }
 
+.accent-orange {
+
+    background-color: var(--accent-sun);
+
+
+}
 
 
 
@@ -186,11 +194,11 @@ body {
 }
 
 a {
-    color: var(--light3);
+    color: var(--accent-light);
 }
 
 a:hover {
-    color: var(--accent-red);
+    color: var(--accent-sun);
     text-decoration: none;
 }
 
