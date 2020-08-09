@@ -26,19 +26,54 @@ const forecast = new Forecast();
 
 
 const updateUI = (data) => {
-
+  
   // const cityDetails = data.cityDetails;
   // const weather = data.weather;
   // const forecasts = data.forecasts;
-
-
+  
+  // const day = data.forecasts.DailyForecasts;
+  const day = data.forecasts.DailyForecasts.Day;
+  
+  
+  console.log(day);
+  
   // destrukruryzxacja properties, czyli to samo co wyzej ale krócej:
-
+  
   const { cityDetails, weather, forecasts } = data;
-
+  
   // console.log(cityDetails);
-  console.log(forecasts);
+  // console.log(forecasts);
   // console.log(weather);
+  
+  
+  // ! DESTRUKTURYZACJA TEGO WIELKIEGO OBIEKTU Z ODPOWIEDZI API ACCUWEATHER :
+  
+  const day1 = (forecasts.DailyForecasts[0]);
+  const { Temperature: { Maximum: { Value } } } = day1
+  
+  console.log(Value);
+
+  const day2 = (forecasts.DailyForecasts[1]);
+  const { Temperature: { Maximum: { Value: test2 } } } = day2
+  
+  console.log(test2);
+
+  const day3 = (forecasts.DailyForecasts[2]);
+  const { Temperature: { Maximum: { Value: test3 } } } = day3
+  
+  console.log(test3);
+
+  const day4 = (forecasts.DailyForecasts[3]);
+  const { Temperature: { Maximum: { Value: test4 } } } = day4
+  
+  console.log(test4);
+
+  const day5 = (forecasts.DailyForecasts[4]);
+  const { Temperature: { Maximum: { Value: test5 } } } = day5
+  
+  console.log(test5);
+
+
 
 
   // uaktualniej details template:
@@ -67,35 +102,43 @@ const updateUI = (data) => {
          
          `;
 
-  detailsRightBottom.innerHTML = `
+  
+  
+  
+         detailsRightBottom.innerHTML = `
 
      
          
 
-         <div class="my-4">
+         <div class="my-5">
            <h4>5-day forecast:</h4> 
         </div>
            
-        <div class="d-flex">
+        <div class="d-flex mt-4">
 
-           <div class="card p-2 bg-light">
-             <p class="mb-4">forecast 1:</p>
+           <div class="card flex-fill p-1 border-0 bg-transparent">
+             <p class="mb-4">Day 1:</p>
+             <p class="mb-0">${Value} C</p>
            </div>
 
-           <div class="card p-2 bg-light">
-             <p class="mb-4">forecast 2:</p>
+           <div class="card flex-fill p-1 border-0 bg-transparent">
+             <p class="mb-4">Day 2:</p>
+             <p class="mb-0">${test2} C</p>
            </div>
 
-           <div class="card p-2 bg-light">
-             <p class="mb-4">forecast 3:</p>
+           <div class="card flex-fill p-1 border-0 bg-transparent">
+             <p class="mb-4">Day 3:</p>
+             <p class="mb-0">${test3} C</p>
            </div>
 
-           <div class="card p-2 bg-light">
-             <p class="mb-4">forecast 3:</p>
+           <div class="card flex-fill p-1 border-0 bg-transparent">
+             <p class="mb-4">Day 4:</p>
+             <p class="mb-0">${test4} C</p>
            </div>
 
-           <div class="card p-2 bg-light">
-             <p class="mb-4">forecast 3:</p>
+           <div class="card flex-fill p-1 border-0 bg-transparent">
+             <p class="mb-4">Day 5:</p>
+             <p class="mb-0">${test5} C</p>
            </div>
            
         </div>
@@ -104,28 +147,29 @@ const updateUI = (data) => {
 
 
 
-  // console.log(forecasts.DailyForecasts.Sun.Rise);
+  
+  
 
-
-
-
-
+  
+  
   // uaktualnieniae obrazów dzien i noc oraz ikon:
-
+  
   // ikony:
-
+  
   const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
-
+  
   icon.setAttribute('src', iconSrc);
+  
+  // console.log(iconSrc);
 
-  console.log(iconSrc);
 
+  
 
   // obraz dzień/noc:
 
   // wersja lepsza, ternary operator
 
-  // !uwaga
+  // !uwaga: obraz dzień/noc:
 
   // let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
 

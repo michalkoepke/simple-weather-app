@@ -6,7 +6,7 @@ class Forecast {
 
 
     // this.key = 'LLG0dsysY40EMifWODoOLNpaF83Ed6B6';
-    this.key = 'ms2bRfWWyLViQf0i3ySGGpyxDc3jkAt6';
+    this.key = 'hOrjUXF1qGBr5EJl1TAvYfaKvGIU16ON';
 
 
 
@@ -53,8 +53,8 @@ class Forecast {
     // console.log(query);
 
 
-    console.log(query);
-    console.log(data);
+    // console.log(query);
+    // console.log(data);
 
     return data[0];
 
@@ -66,7 +66,7 @@ class Forecast {
   async getForecast(id) {
 
 
-    const query = `858642?apikey=${this.key}`
+    const query = `858642?apikey=${this.key}&metric=true`
 
     const response = await fetch(this.forecastURI + query);
     const data = await response.json();
