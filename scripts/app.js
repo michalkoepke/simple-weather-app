@@ -32,10 +32,10 @@ const updateUI = (data) => {
   // const forecasts = data.forecasts;
   
   // const day = data.forecasts.DailyForecasts;
-  const day = data.forecasts.DailyForecasts.Day;
+  // const day = data.forecasts.DailyForecasts.Day;
   
   
-  console.log(day);
+  // console.log(day);
   
   // destrukruryzxacja properties, czyli to samo co wyzej ale krócej:
   
