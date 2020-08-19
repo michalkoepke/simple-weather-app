@@ -47,31 +47,127 @@ const updateUI = (data) => {
   
   
   // ! DESTRUKTURYZACJA TEGO WIELKIEGO OBIEKTU Z ODPOWIEDZI API ACCUWEATHER :
+
+  // * dzien 1
   
   const day1 = (forecasts.DailyForecasts[0]);
   const { Temperature: { Maximum: { Value } } } = day1
+
+  const day1date = (forecasts.DailyForecasts[0]);
+  const { Date : data1 } = day1date
+
   
-  console.log(Value);
+  
+  console.log(data1);
+  
+  
+  const dzien1 = (dateFns.format(data1, 'ddd'));
+  console.log(dzien1);
+  
+  
+  // ikona
+
+  const icon1 = (forecasts.DailyForecasts[0]);
+  const { Day: { Icon } } = icon1
+  console.log(Icon);
+  
+
+  
+// * dzien 2
+  
+  // console.log(Value);
 
   const day2 = (forecasts.DailyForecasts[1]);
   const { Temperature: { Maximum: { Value: test2 } } } = day2
+
+  const day2date = (forecasts.DailyForecasts[1]);
+  const { Date : data2 } = day2date
+
+  console.log(data2);
+
+  const dzien2 = (dateFns.format(data2, 'ddd'));
+
+  console.log(dzien2);
+
+
+  // ikona
+
+  const icon2 = (forecasts.DailyForecasts[1]);
+  const { Day: { Icon : ikona2} } = icon2
+  console.log(ikona2);
   
-  console.log(test2);
+  // console.log(test2);
+
+  
+
+  // * dzien 3
 
   const day3 = (forecasts.DailyForecasts[2]);
   const { Temperature: { Maximum: { Value: test3 } } } = day3
+
+  const day3date = (forecasts.DailyForecasts[2]);
+  const { Date : data3 } = day3date
+
+  console.log(data3);
+
+  const dzien3 = (dateFns.format(data3, 'ddd'));
+
+  console.log(dzien3);
+
+
+  // ikona
+
+  const icon3 = (forecasts.DailyForecasts[2]);
+  const { Day: { Icon : ikona3} } = icon3
+  console.log(ikona3);
+
   
-  console.log(test3);
+  // console.log(test3);
+
+  // * dzien 4
 
   const day4 = (forecasts.DailyForecasts[3]);
   const { Temperature: { Maximum: { Value: test4 } } } = day4
+
+  const day4date = (forecasts.DailyForecasts[3]);
+  const { Date : data4 } = day4date
+
+  console.log(data4);
+
+  const dzien4 = (dateFns.format(data4, 'ddd'));
+
+  console.log(dzien4);
+
+
+  // ikona
+
+  const icon4 = (forecasts.DailyForecasts[3]);
+  const { Day: { Icon : ikona4} } = icon4
+  console.log(ikona4);
   
-  console.log(test4);
+  // console.log(test4);
+
+  // * dzien 5
 
   const day5 = (forecasts.DailyForecasts[4]);
   const { Temperature: { Maximum: { Value: test5 } } } = day5
+
+  const day5date = (forecasts.DailyForecasts[4]);
+  const { Date : data5 } = day5date
+
+  console.log(data5);
+
+  const dzien5 = (dateFns.format(data5, 'ddd'));
+
+  console.log(dzien5);
+
+  // ikona
+
+  const icon5 = (forecasts.DailyForecasts[4]);
+  const { Day: { Icon : ikona5} } = icon5
+  console.log(ikona5);
   
-  console.log(test5);
+  // console.log(test5);
 
 
 
@@ -114,30 +210,71 @@ const updateUI = (data) => {
            <h4>5-day forecast:</h4> 
         </div>
            
-        <div class="d-flex mt-4">
+        <div class="d-flex justify-content-between mt-4">
 
-           <div class="card flex-fill p-1 border-0 bg-transparent">
-             <p class="mb-4">Day 1:</p>
+           <div class="card flex-column justify-content-center p-1 border-0 bg-transparent">
+             <p class="mb-0">${dzien1}</p>
+
+               <div class="text-center dark-text icon-small">
+
+                <img class="icon-small" src="img/icons/${Icon}.svg">
+
+              </div>
+
              <p class="mb-0">${Value} C</p>
            </div>
 
-           <div class="card flex-fill p-1 border-0 bg-transparent">
-             <p class="mb-4">Day 2:</p>
+           <div class="card flex-column justify-content-center p-1 border-0 bg-transparent">
+             <p class="mb-0">${dzien2}</p>
+
+               <div class="text-center dark-text icon-small">
+
+                 <img class="icon-small" src="img/icons/${ikona2}.svg">
+
+               </div>
+
+
+
              <p class="mb-0">${test2} C</p>
            </div>
 
-           <div class="card flex-fill p-1 border-0 bg-transparent">
-             <p class="mb-4">Day 3:</p>
+           <div class="card flex-column justify-content-center p-1 border-0 bg-transparent">
+             <p class="mb-0">${dzien3}</p>
+                <div class="text-center dark-text icon-small">
+
+                    <img class="icon-small" src="img/icons/${ikona3}.svg">
+
+                </div>
+
+
              <p class="mb-0">${test3} C</p>
            </div>
 
-           <div class="card flex-fill p-1 border-0 bg-transparent">
-             <p class="mb-4">Day 4:</p>
+           <div class="card flex-column justify-content-center p-1 border-0 bg-transparent">
+             <p class="mb-0">${dzien4}</p>
+
+                <div class="text-center dark-text icon-small">
+
+                    <img class="icon-small" src="img/icons/${ikona4}.svg">
+
+                </div>
+
+
+
              <p class="mb-0">${test4} C</p>
            </div>
 
-           <div class="card flex-fill p-1 border-0 bg-transparent">
-             <p class="mb-4">Day 5:</p>
+           <div class="card flex-column justify-content-center p-1 border-0 bg-transparent">
+             <p class="mb-0">${dzien5}</p>
+
+                <div class="text-center dark-text icon-small">
+
+                    <img class="icon-small" src="img/icons/${ikona5}.svg">
+
+                </div>
+
+
+
              <p class="mb-0">${test5} C</p>
            </div>
            

@@ -252,6 +252,16 @@ input[type="text"]:focus {
 
 };
 
+.icon-small {
+
+    /* min-width: 20px; */
+    width: 50px;
+    /* background-size: contain; */
+
+};
+
+
+
 .details {
     position: relative;
 }
