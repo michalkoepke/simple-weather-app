@@ -47,6 +47,25 @@ const updateUI = (data) => {
   // console.log(forecasts);
   // console.log(weather);
 
+// !zmiana koloru ikonek forecast:
+
+  let zrodlo = null;
+
+
+  if (!weather.IsDayTime) {
+    zrodlo = 'icons-small-gold'
+
+  }
+
+  else {
+    zrodlo = 'icons-small-grey'
+
+  }
+
+
+
+
+
 
   // ! DESTRUKTURYZACJA TEGO WIELKIEGO OBIEKTU Z ODPOWIEDZI API ACCUWEATHER :
 
@@ -173,7 +192,7 @@ const updateUI = (data) => {
 
 
 
-
+// ! ustawianie formatu czasu pomiaru
 
 
 
@@ -187,7 +206,9 @@ const updateUI = (data) => {
   console.log(mainTimeFormat);
 
 
-  // uaktualniej details template:
+
+
+  // ! uaktualnij details template:
 
   details.innerHTML = `
 
@@ -232,7 +253,7 @@ const updateUI = (data) => {
 
                <div class="text-center dark-text">
 
-                <img src="img/icons-small-grey/${Icon}.svg" width="75" height="75">
+                <img src="img/${zrodlo}/${Icon}.svg" width="75" height="75">
 
               </div>
 
@@ -244,7 +265,7 @@ const updateUI = (data) => {
 
                <div class="text-center dark-text icon-small">
 
-                 <img src="img/icons-small-grey/${ikona2}.svg" width="75" height="75">
+                 <img src="img/${zrodlo}/${ikona2}.svg" width="75" height="75">
 
                </div>
 
@@ -257,7 +278,7 @@ const updateUI = (data) => {
              <p class="mb-0">${dzien3}</p>
                 <div class="text-center dark-text icon-small">
 
-                    <img src="img/icons-small-grey/${ikona3}.svg" width="75" height="75">
+                    <img src="img/${zrodlo}/${ikona3}.svg" width="75" height="75">
 
                 </div>
 
@@ -270,7 +291,7 @@ const updateUI = (data) => {
 
                 <div class="text-center dark-text icon-small">
 
-                    <img src="img/icons-small-grey/${ikona4}.svg" width="75" height="75">
+                    <img src="img/${zrodlo}/${ikona4}.svg" width="75" height="75">
 
                 </div>
 
@@ -284,7 +305,7 @@ const updateUI = (data) => {
 
                 <div class="text-center dark-text icon-small">
 
-                    <img src="img/icons-small-grey/${ikona5}.svg" width="75" height="75">
+                    <img src="img/${zrodlo}/${ikona5}.svg" width="75" height="75">
 
                 </div>
 
@@ -300,20 +321,47 @@ const updateUI = (data) => {
 
 
 
-  const IkonyGold = `img/icons-gold`;
-  const IkonyGoldSmall = `img/icons-gold-small`;
 
 
 
   // uaktualnieniae obrazów dzien i noc oraz ikon:
 
-  // ikony:
+  // ! ikona-big:
 
-  const iconSrc = `img/icons-grey/${weather.WeatherIcon}.svg`;
+  // ! Experimental:
+
+  let zrodloBig = null;
+
+
+  if (!weather.IsDayTime) {
+    zrodloBig = 'icons-gold'
+
+  }
+
+  else {
+    zrodloBig = 'icons-grey'
+
+  }
+
+
+  const iconSrc = `img/${zrodloBig}/${weather.WeatherIcon}.svg`;
 
   icon.setAttribute('src', iconSrc);
 
+
+
+
+
+
+
+  // ! tego nie ruszac, bo dziala!!!!
+
+  // const iconSrc = `img/icons-grey/${weather.WeatherIcon}.svg`;
+
+  // icon.setAttribute('src', iconSrc);
+
   // console.log(iconSrc);
+
 
 
 
@@ -351,6 +399,13 @@ const updateUI = (data) => {
 
   }
 
+
+
+
+
+
+
+
   // !zmiana tla dzien/noc:
 
   const bgChangeNight = () => {
@@ -358,7 +413,7 @@ const updateUI = (data) => {
     const background = document.querySelector('body');
     background.classList.add('night');
 
-    
+
   }
 
 
@@ -367,51 +422,69 @@ const updateUI = (data) => {
     const background = document.querySelector('body');
     background.classList.remove('night');
 
-    
+
   }
+
 
   // !zmiana koloru ikon (zmiana zrodła z ktorego są pobierane)
 
 
-
-  const zrodlo = () => {
-
-    const Dzien =  'img src="img/icons-small-grey/'
-    const Noc =  'img src="img/icons-small-gold/'
-
-
-
-
-
-  }
-  
-
-
-
-  
-  // !uwaga: obraz dzień/noc:
-  
   // wersja lepsza, ternary operator
   // let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
 
   // wersja gorsza, czyli łopatologiczne if:
 
+
   if (!weather.IsDayTime) {
 
-    //     timeSrc = 'img/day.svg';
+
     textChangeLight();
     bgChangeNight();
+    // ikonyNoc();
+    // zrodlo = 'icons-small-gold'
+
+
 
   }
 
   else {
     textChangeDark();
     bgChangeDay();
+    // ikonyDzien();
+    // zrodlo = 'icons-small-grey'
+
+
+
   }
 
 
 
+  // ! wersja shauna:
+
+
+  // // update the night/day & icon images
+  // const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
+  // icon.setAttribute('src', iconSrc);
+
+  // let timeSrc = null;
+  // if (weather.IsDayTime) {
+  //   timeSrc = 'img/day.svg';
+  // } else {
+  //   timeSrc = 'img/night.svg';
+  // }
+
   // time.setAttribute('src', timeSrc);
+
+
+
+
+
+
+
+
+
+
+
 
   // !koniec
 
@@ -424,6 +497,18 @@ const updateUI = (data) => {
 
   // console.log(data);
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -6,7 +6,10 @@ class Forecast {
 
 
     // this.key = 'LLG0dsysY40EMifWODoOLNpaF83Ed6B6';
-    this.key = 'aFzLr8bReT3a16Xjsm2ww1Pt6Vn0Y6Ag';
+
+    // ! KLUCZ API!!!!
+
+    this.key = 'dHJ3kx3UbFYA7vyYWC9Qj2CqwSKU3r2w';
 
 
 
